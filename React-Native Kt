@@ -1,0 +1,188 @@
+React Native Commands:
+React Native CMD & Termianl command
+
+1. npm uninstall -g react-native-cli @react-native-community/cli
+2. npx react-native@latest init AwesomeProject
+3. npx react-native@0.71.1 init Demo --version 0.71.1
+4. npx react-native start
+5. npx react-native run-android
+6. npx react-native run-ios
+7. npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src
+8.npm i react-native-reanimated@3.11.0
+
+KT Topics  :
+> Project Creation
+> Project Structure
+> Difference between Class Components and Functional Components
+> Introduction about node Modules
+> Basic Components
+> User Interface
+> List Views
+> Android & iOS Components
+> Others
+> API Integration
+> Local Database
+> Async Storage
+
+
+30 - 09 - 2024
+Given KT on React Native on Overall Project Structure and each and every component in the project
+> Basic Components, List Views,User InterFace, ListView,React Navigations,Route props
+
+01-10-2024
+Given Kt on Drawers, 
+Bottom tabs,
+ UI Design
+ cleared Reanimated issues
+
+Packages Instalation for navigations---
+-->npm install @react-navigation/native @react-navigation/native-stack @react-navigation/stack react-native-gesture-handler react-native-safe-area-context react-native-screens
+
+04-10-2024
+KT Topics  :
+> Project Creation
+> Project Structure
+> Difference between Class Components and Functional Components
+> Introduction about node Modules
+> Basic Components
+> User Interface
+> List Views
+> Android & iOS Components
+> Others
+> API Integration
+> Local Database
+> Async Storage.
+
+-->Completed Screens Of Food Delivery.
+-->Given Kt On Async Storage And Local Storage And Api iNtegration.
+
+05-10-2024 
+--> Created a Login session using async storage using ui pages.
+--> Created a Local Database For User, performed add new user to database, fetching all User from database and performed the Login task. 
+
+07-10-2024
+
+React Native CMD & Termianl command
+
+1. npm uninstall -g react-native-cli @react-native-community/cli
+2. npx react-native@latest init AwesomeProject
+3. npx react-native@x.xx.x init AwesomeProject --version X.XX.X
+4. npx react-native start
+5. npx react-native run-android
+6. npx react-native run-ios
+7. npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+8. cd android ---> ./gradlew assembleRelease
+8.1. cd android ---> ./gradlew assembleDebug
+8.2. cd android ---> ./gradlew bundleRelease
+
+14. npx eslint .     --->  Run linting checks:
+15. npx jest         --->  Run tests:
+16. npx react-native generate MyComponent          --->  Generate a new React Native component:
+17. npx react-native link      ---->  Link native dependencies:
+18. cd android ---> ./gradlew clean         --->  Clean the build cache
+25. npm install -g react-native-cli
+26. react-native doctor
+27. react-native clean
+28. npx jetify
+29. npx jetifier
+30. npm outdated      ----->  Use to check required update packages need
+
+Link - https://rapidapi.com/collection/list-of-free-apis
+by taking any one of the list API call. show the list view and Details screen for Particular Card
+
+08-10-2024
+Good Evening, Sir,
+Today Status : 
+--> Learned About Fetching Data from api and Displaying Data In Card.
+--> How To Use Props to Send Data To Another Page.
+--> In Ui Pages Displaying Dynamic Weather Through Api
+
+09-10-2024
+Good Evening, Sir,
+Today Status : 
+--> Learned about .abb file format and their advantages.
+--> Learned about how to update the react Native Apk Version.
+
+10-10-2024
+
+"signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+         release {
+            storeFile file('apvizagcomm.keystore')
+            storePassword 'CyberWorld1234$'
+            keyAlias 'apvizagcomm'
+            keyPassword 'CyberWorld1234$'
+        }
+    }"
+
+1. How To Genarate Realease Apk File From react native Project.
+-->C:\Program Files\Java\bin --- cmd 
+Execute The Command - "keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000"
+									  -------------
+									  edit the name
+--> Ask Questions Like Enter KeyStore Password, DevoloperName, Organisation Unit & Name, City, State And Country After That Genarate a KeyStore File.
+--> The Genarated KeyStore File At Bin Folder (File Name : my-upload-key.keystore).
+--> The KeyStore File Has To Place At This Location "android/app".
+--> Edit The File Inside " android/gradle.properties " Add The Below Feilds.
+	MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+	MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+	MYAPP_UPLOAD_STORE_PASSWORD=*****
+	MYAPP_UPLOAD_KEY_PASSWORD=*****
+
+-->Edit The File Inside "android/app/build.gradle"
+	"android {
+	    ...
+	    defaultConfig { ... }
+	    signingConfigs {
+	        release {
+	            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+	                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+	                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+	                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+	                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+	            }
+ 	       }
+ 	   }
+    	buildTypes {
+        	release {
+            		...
+            		signingConfig signingConfigs.release
+        		}
+    		}
+	}"
+
+--> After Go To "cd android" And ".\gradlew clean".
+-->Inside that path excute the line "./gradlew bundleRelease".
+-->Inside the path "android/app/build/outputs/release/app-release.apk" file will be created.
+
+14 - 10 - 2024
+--------------------------------------------------Firebase----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. How To Integrate React Native And React Native Firebase.
+--> Add the dependencies of firebase "npm i @react-native-firebase/app , npm i @react-native-firebase/auth".
+--> Add The Classpath In android/build.gradle = {classpath 'com.google.gms:google-services:4.4.2'}
+--> Add The Plugin Line In android/app/build.gradle ={apply plugin: 'com.google.gms.google-services'}.
+--> Now Create an account And add The Project To Website ("https://console.firebase.google.com/").While Creating Add The Package Name from "android/app/src/main/java/mainapplication.java" the file and Download the Google-services.json file and place the File Under "android/app/".
+--> Add these two lines 
+{"implementation'com.google.firebase:firebase-analytics-ktx'
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")"} inside the "android/app/src/build.gradlew" under the dependencies add these two lines.
+--> Inside the Node Modules Modify the line with "if (exception instanceof FirebaseAuthUserCollisionException) {
+    FirebaseAuthUserCollisionException collEx = (FirebaseAuthUserCollisionException) exception;" add this in react native firebase/auth/android/src/main/java/ReactNativeFirebaseAuthModule.java.
+--> after that Clean the Gradlew and excecute the ".\gradlew assembleDebug". after all the process start the app.
+2. How to Change The Version.
+--> Under This {"android/app/src"} path build.gradle in that We can Modify the Version Of React Native app.
+
+16 - 10 - 2024 (Assignments)
+
+Complete the following in 2 days (today & tomorrow) together and give me demo on phones
+
+Register and Sign In from Google, Facebook, Twitter to login to an application and also show the profile of the user inside that app
+
+Make a publicly available API calls (take from RAPID API) and create inlinite scroller screen in react native and show me in both Android and iOS. Design the items in Cards.
+
+
