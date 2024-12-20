@@ -1,0 +1,59 @@
+step 1 : 
+-->create a project folder , run cmd --> "virtualenv venv".
+-->if shows any error(run cmd --> "pip install virtualenv").(virtualenvirnment will be created).
+-->active virtualenvirnment in that folder (run cmd --> "venv\Scripts\activate").(envirnment will be activated)
+step 2:
+--> Now Install Django (run cmd --> "pip install django").
+--> Now Create Project In That Folder (run cmd --> "django-admin startproject myproject . ")
+									  --project name--
+-->(run cmd --> "python manage.py" for showing the django features).
+-->To run the project(run cmd --> "python manage.py runserver").
+step 3:
+--> edit this line in main project(demo) setting.py file (ALLOWED_HOSTS = ['*']).
+--> Now create a database in postgres database name is demo.
+--> in setting.py file , add the database connection('
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'demo',
+       'USER': 'postgres',
+       'PASSWORD': 'nimai1234$',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
+}
+
+').
+-->for ready the project setup(run cmd -->'python manage.py makemigrations').excecute after below cmd.
+-->if shows any error(run cmd --> "pip install psycopg2").
+-->for create of tables in database (run cmd --> 'python manage.py migrate').
+step 4: 
+--> (run cmd --> "python manage.py startapp myapp")
+					--modulename--
+--> in project we have to create another app. In Single Project We can create multiple app or multiple modules.
+--> after Excecution of cmd myapp folder will be created.
+
+--> under the app folder views.py, here the require code has to be written.
+
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Home Page")
+
+--> in app folder create the urls.py, here the view function will be call here.
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'), 
+]
+
+--> Now, Under the main project in urls.py file, add the path of the app.
+
+ path('home/', include('home.urls')),
+
+
+
+
